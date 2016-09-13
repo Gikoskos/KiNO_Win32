@@ -32,11 +32,15 @@ My own builds are in the 'releases' tab.
 
 [libxml2](http://xmlsoft.org/)
 
+## Assets
+
+[Liberation Serif font](https://www.fontsquirrel.com/fonts/liberation-serif)
+
 
 ## License
 
 see LICENSE for KiNO_Win32
 
-see win32build/LICENSES for the libraries
+see win32build/LICENSES for the libraries and font
 
 KiNO_Win32 (C) 2016 <georgekoskerid@outlook.com>

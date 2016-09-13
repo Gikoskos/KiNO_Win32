@@ -1,0 +1,5 @@
+This program uses Liberation Serif font.
+
+If you haven't installed it on your computer, it's on the 'font' folder.
+
+Double click to open the .ttf file and click Install
