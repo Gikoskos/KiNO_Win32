@@ -3,7 +3,7 @@
 
 CC = gcc
 CFLAGS = -Wall -std=c11 -O3
-LINKER = -shared-libgcc -lcurldll .\win32build\libxml2.dll -lwininet -lcomctl32 -lgdi32 -ldwmapi
+LINKER = -static-libgcc -lcurldll .\win32build\libxml2.dll -lwininet -lcomctl32 -lgdi32 -ldwmapi
 DELCMD = del
 GUI = .\win32build\KiNO_Win32.exe
 GUIDBG = .\win32build\KiNO_Win32dbg.exe
