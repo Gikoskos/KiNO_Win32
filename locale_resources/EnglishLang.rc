@@ -1,0 +1,144 @@
+﻿/* EnglishLang.rc
+ * English text for KiNO_Win32
+  ****************/
+
+
+#pragma code_page(65001) //unicode codepage
+
+#include <windows.h>
+#include <winnt.h>
+#include <commctrl.h>
+#include <richedit.h>
+#include "locale_ids.h"
+#include "../resource.h"
+
+
+//
+// EnglishLang.dll versioning
+//
+1       VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0
+FILEFLAGSMASK   0X3FL
+FILEFLAGS       0L
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_DLL
+FILESUBTYPE     0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004B0"
+        BEGIN
+            VALUE "FileDescription", "KiNO_Win32 English language pack"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "EnglishLang.dll"
+            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "OriginalFilename", "EnglishLang.dll"
+            VALUE "CompanyName", " "
+            VALUE "LegalCopyright", "Copyright (c) 2016 George Koskeridis"
+            VALUE "ProductName", "EnglishLang"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0000, 0x04B0
+    END
+END
+
+IDR_MAIN_MENU MENU
+{
+    MENUITEM "S&ettings", IDM_SETTINGS
+    POPUP "L&anguages"
+    {
+        MENUITEM "English", IDM_EN_LANG
+        MENUITEM "Ελληνικά", IDM_GR_LANG
+    }
+    MENUITEM "&About", IDM_ABOUT
+    MENUITEM "&Exit", IDM_QUIT
+}
+
+STRINGTABLE
+{
+    IDSTRING_1,  "Settings"
+    IDSTRING_2,  "Languages"
+    IDSTRING_3,  "About"
+    IDSTRING_4,  "Exit"
+    IDSTRING_5,  "About KiNO_Win32"
+    IDSTRING_6,  "Libraries used"
+    IDSTRING_7,  "KiNO_Win32 for processing KINO lottery data based on 8 custom or fixed tickets"
+    IDSTRING_8,  "<a href=""https://github.com/Gikoskos/"">George Koskeridis</a>"
+    IDSTRING_9,  "Downloading and processing data..."
+    IDSTRING_10, "Download and process lotteries"
+}
+
+STRINGTABLE
+{
+    IDSTRING_11, "First lottery number"
+    IDSTRING_12, "Last lottery number"
+    IDSTRING_13, "                  Last"
+    IDSTRING_14, "lotteries"
+    IDSTRING_15, "Save downloaded lotteries on disk"
+    IDSTRING_16, "Save processed lottery data on disk"
+    IDSTRING_17, "    Enable"
+    IDSTRING_18, "Cancel"
+    IDSTRING_19, "Change tickets"
+    IDSTRING_20, "Multithreaded downloads"
+}
+
+STRINGTABLE
+{
+    IDSTRING_21, "Max thread number"
+    IDSTRING_22, "Default tickets"
+    IDSTRING_23, "Random tickets"
+    IDSTRING_24, " st ticket"
+    IDSTRING_25, "Something happened!"
+    IDSTRING_26, "Bad input!"
+    IDSTRING_27, "Only values from 1 up to 9999 are allowed on this field."
+    IDSTRING_28, "Failed downloading latest KINO lottery."
+    IDSTRING_29, "No lottery numbers were given, for processing."
+    IDSTRING_30, "First lottery number is bigger than last lottery number."
+}
+
+STRINGTABLE
+{
+    IDSTRING_31, "MonthCal_GetSelRange() failed."
+    IDSTRING_32, "Failed creating/reading error logging file. No error logging will occur for this session."
+    IDSTRING_33, "Failed downloading the lotteries of the selected dates."
+    IDSTRING_34, "<a href=""https://curl.haxx.se/libcurl/"">libcurl</a> which depends on <a href=""https://www.openssl.org/"">OpenSSL</a>"
+    IDSTRING_35, "Compiled with Mingw-w64"
+    IDSTRING_36, "Failed initializing ticket tabs!"
+    IDSTRING_37, "Failed initializing ticket listview!"
+    IDSTRING_38, "Can't download over 10000 lotteries."
+    IDSTRING_39, "KINO lottery with number "
+    IDSTRING_40, " hasn't been played yet. Latest KINO lottery number: "
+}
+
+STRINGTABLE
+{
+    IDSTRING_41, "Failed printing processed lottery data on the text box."
+    IDSTRING_42, "DwmIsCompositionEnabled() failed."
+    IDSTRING_43, "No internet connection found on this machine. The program might malfunction without internet."
+    IDSTRING_44, "No internet connection!"
+    IDSTRING_45, "DownloadsControllerThread failed with bad parameters."
+    IDSTRING_46, "download_KINO_lotteries failed."
+    IDSTRING_47, ""
+    IDSTRING_48, ""
+    IDSTRING_49, ""
+    IDSTRING_50, ""
+}
+
+STRINGTABLE
+{
+    IDSTRING_51, ""
+    IDSTRING_52, ""
+    IDSTRING_53, ""
+    IDSTRING_54, ""
+    IDSTRING_55, ""
+    IDSTRING_56, ""
+    IDSTRING_57, ""
+    IDSTRING_58, ""
+    IDSTRING_59, ""
+    IDSTRING_60, ""
+}
+
+

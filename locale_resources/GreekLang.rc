@@ -1,0 +1,144 @@
+﻿/* GreekLang.rc
+ * Greek text for KiNO_Win32
+  ****************/
+
+
+#pragma code_page(65001) //unicode codepage
+
+#include <windows.h>
+#include <winnt.h>
+#include <commctrl.h>
+#include <richedit.h>
+#include "locale_ids.h"
+#include "../resource.h"
+
+
+//
+// GreekLang.dll versioning
+//
+1       VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0
+FILEFLAGSMASK   0X3FL
+FILEFLAGS       0L
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_DLL
+FILESUBTYPE     0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004B0"
+        BEGIN
+            VALUE "FileDescription", "KiNO_Win32 Greek language pack"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "GreekLang.dll"
+            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "OriginalFilename", "GreekLang.dll"
+            VALUE "CompanyName", " "
+            VALUE "LegalCopyright", "Copyright (c) 2016 George Koskeridis"
+            VALUE "ProductName", "GreekLang"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0000, 0x04B0
+    END
+END
+
+
+IDR_MAIN_MENU MENU
+{
+    MENUITEM "&Ρυθμίσεις", IDM_SETTINGS
+    POPUP "&Γλώσσες"
+    {
+        MENUITEM "English", IDM_EN_LANG
+        MENUITEM "Ελληνικά", IDM_GR_LANG
+    }
+    MENUITEM "Σχ&ετικά με", IDM_ABOUT
+    MENUITEM "Έξ&οδος", IDM_QUIT
+}
+
+
+STRINGTABLE
+{
+    IDSTRING_1,  "Ρυθμίσεις"
+    IDSTRING_2,  "Γλώσσες"
+    IDSTRING_3,  "Σχετικά με"
+    IDSTRING_4,  "Έξοδος"
+    IDSTRING_5,  "Σχετικά με KiNO_Win32"
+    IDSTRING_6,  "Βιβλιοθήκες"
+    IDSTRING_7,  "KiNO_Win32 για επεξεργασία ενός εύρους κληρώσεων του ΚΙΝΟ ως προς 8 δελτία"
+    IDSTRING_8,  "<a href=""https://github.com/Gikoskos/"">Γιώργος Κοσκερίδης</a>"
+    IDSTRING_9,  "Κατέβασμα και επεξεργασία δεδομένων..."
+    IDSTRING_10, "Κατέβασμα και επεξεργασία κληρώσεων"
+}
+
+STRINGTABLE
+{
+    IDSTRING_11, "Αριθμός αρχικής κλήρωσης"
+    IDSTRING_12, "Αριθμός τελικής κλήρωσης"
+    IDSTRING_13, "Προηγούμενες"
+    IDSTRING_14, "κληρώσεις"
+    IDSTRING_15, "Αποθήκευση κατεβασμένων κληρώσεων στον δίσκο"
+    IDSTRING_16, "Αποθήκευση επεξεργασμένων κληρώσεων σε αρχείο"
+    IDSTRING_17, "Ενεργοποίηση"
+    IDSTRING_18, "Άκυρο"
+    IDSTRING_19, "Αλλαγή δελτίων"
+    IDSTRING_20, "Κατέβασμα με νήματα"
+}
+
+STRINGTABLE
+{
+    IDSTRING_21, "Μέγιστος αριθμός νημάτων"
+    IDSTRING_22, "Επαναφορά στα προεπιλεγμένα δελτία"
+    IDSTRING_23, "Τυχαία δελτία"
+    IDSTRING_24, " ο δελτίο"
+    IDSTRING_25, "Κάτι συνέβη!"
+    IDSTRING_26, "Σφάλμα εισόδου!"
+    IDSTRING_27, "Επιτρεπόμενες τιμές μόνο από 1 έως και 9999 σε αυτό το πεδίο."
+    IDSTRING_28, "Απέτυχε το κατέβασμα της τελευταίας κλήρωσης ΚΙΝΟ."
+    IDSTRING_29, "Δεν δόθηκαν αριθμοί κληρώσεων για επεξεργασία."
+    IDSTRING_30, "Ο αριθμός αρχικής κλήρωσης είναι μεγαλύτερος από τον αριθμό τελικής κλήρωσης."
+}
+
+STRINGTABLE
+{
+    IDSTRING_31, "Η MonthCal_GetSelRange απέτυχε."
+    IDSTRING_32, "Απέτυχε η δημιουργία/ανάγνωση του αρχείου καταγραφής σφαλμάτων. Δεν θα γίνει καταγραφή σφαλμάτων σε αρχείο αυτήν την φορά."
+    IDSTRING_33, "Απέτυχε το κατέβασμα των κληρώσεων, των επιλεγμένων ημερομηνιών."
+    IDSTRING_34, "<a href=""https://curl.haxx.se/libcurl/"">libcurl</a> που στηρίζεται στο <a href=""https://www.openssl.org/"">OpenSSL</a>"
+    IDSTRING_35, "Μετταγλωτίστηκε με το Mingw-w64"
+    IDSTRING_36, "Απέτυχε η αρχικοποίηση των καρτέλων δελτίων!"
+    IDSTRING_37, "Απέτυχε η αρχικοποίηση των δελτίων!"
+    IDSTRING_38, "Δεν επιτρέπεται κατέβασμα 10000 κληρώσεων και πάνω."
+    IDSTRING_39, "Η κλήρωση ΚΙΝΟ "
+    IDSTRING_40, " δεν παίχτηκε ακόμα. Αριθμός τελευταίας κλήρωσης ΚΙΝΟ: "
+}
+
+STRINGTABLE
+{
+    IDSTRING_41, "Απέτυχε η εκτύπωση των επεξεργασμένων κληρώσεων στο κουτί κειμένου."
+    IDSTRING_42, "Η DwmIsCompositionEnabled() απέτυχε."
+    IDSTRING_43, "Δεν βρέθηκε διαθέσιμη σύνδεση internet στον υπολογιστή. Η εφαρμογή τείνει να δυσλειτουργήσει χωρίς internet."
+    IDSTRING_44, "Δεν υπάρχει σύνδεση internet"
+    IDSTRING_45, "Η DownloadsControllerThread απέτυχε με λάθος παραμέτρους."
+    IDSTRING_46, "Η download_KINO_lotteries απέτυχε."
+    IDSTRING_47, ""
+    IDSTRING_48, ""
+    IDSTRING_49, ""
+    IDSTRING_50, ""
+}
+
+STRINGTABLE
+{
+    IDSTRING_51, ""
+    IDSTRING_52, ""
+    IDSTRING_53, ""
+    IDSTRING_54, ""
+    IDSTRING_55, ""
+    IDSTRING_56, ""
+    IDSTRING_57, ""
+    IDSTRING_58, ""
+    IDSTRING_59, ""
+    IDSTRING_60, ""
+}
