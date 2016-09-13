@@ -5,8 +5,9 @@ CC = gcc
 CFLAGS = -Wall -std=c11 -O3
 DELCMD = del
 
-LOCALE_OBJS = EnglishLang.o GreekLang.o
-LOCALE_DLLS = EnglishLang.dll GreekLang.dll
+LOCALE_RCS = $(wildcard *.rc)
+LOCALE_OBJS = $(patsubst %.rc,%.o,$(LOCALE_RCS))
+LOCALE_DLLS = $(patsubst %.o,%.dll,$(LOCALE_OBJS))
 
 all: $(LOCALE_DLLS)
 
