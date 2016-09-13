@@ -24,6 +24,8 @@ To compile the language DLLs run:
 
     mingw32-make.exe locale_dlls
 
+My own builds are in the 'releases' tab.
+
 ## Libs used
 
 [libcurl](http://curl.haxx.se/libcurl/)
