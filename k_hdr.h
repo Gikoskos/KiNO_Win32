@@ -51,6 +51,7 @@
 
 #include <direct.h>
 #include <io.h>
+#include <search.h>
 #define k_access(x, y) _access(x, y)
 #define k_unlink(x) _unlink(x)
 #define k_rmdir(x) _rmdir(x)

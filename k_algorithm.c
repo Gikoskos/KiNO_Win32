@@ -23,13 +23,13 @@
 
 static void (*make_groups_func)(lottery_data*);
 
-static int compare_int(const void *a, const void *b, void *arg);
+static int compare_int(void *arg, const void *a, const void *b);
 static void make_groups_of_tens(lottery_data *dat);
 static void make_custom_groups(lottery_data *dat);
 static float find_payoff(uint8_t total_winning_numbers, bool magic_number);
 
 
-int compare_int(const void *a, const void *b, void *arg)
+int compare_int(void *arg, const void *a, const void *b)
 {
     uint8_t *p = (uint8_t*)a, *q = (uint8_t*)b, *c = (uint8_t*)arg;
 
@@ -172,7 +172,7 @@ bool process_lotteries(lottery_data *to_process, size_t data_len)
 
         counter = 0;
         (*to_process).magic_number = (*to_process).results[19]; //last winning number is KINO bonus
-        sort_r((*to_process).results,
+        qsort_s((*to_process).results,
                (sizeof((*to_process).results) / sizeof((*to_process).results[0])),
                sizeof((*to_process).results[0]), compare_int, &counter);
 
