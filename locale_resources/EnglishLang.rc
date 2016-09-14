@@ -121,8 +121,8 @@ STRINGTABLE
     IDSTRING_44, "No internet connection!"
     IDSTRING_45, "DownloadsControllerThread failed with bad parameters."
     IDSTRING_46, "download_KINO_lotteries failed."
-    IDSTRING_47, ""
-    IDSTRING_48, ""
+    IDSTRING_47, "Maximum thread number allowed is 150. Default is 30 threads for multithreaded downloads."
+    IDSTRING_48, "Invalid number of threads!"
     IDSTRING_49, ""
     IDSTRING_50, ""
 }

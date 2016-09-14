@@ -175,7 +175,8 @@ UINT CALLBACK get_xml_thrd_func(LPVOID void_dat)
         _endthreadex(PROGRAM_LOTTERY_DAT_NULL);
 
     //if the download failed for some reason, we retry until we get it right
-    //for a maximum of max_download_retries times
+    //for a maximum of max_download_retries times. This system is guaranteed to be non-deterministic
+    //especially for a large amount of threads
     while ((download_success != true) && (curr_try <= max_download_retries)) {
 
         //first we try to download the file from the dat->url_buf URL

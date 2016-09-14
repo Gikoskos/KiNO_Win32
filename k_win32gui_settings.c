@@ -264,13 +264,10 @@ INT_PTR CALLBACK SettingsDialogProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPA
             parallel_d = IsDlgButtonChecked(hwnd, IDC_MULTITHREADED_CHECK);
             delete_file = !IsDlgButtonChecked(hwnd, IDC_SAVEDOWNLOADED_CHECK);
             GetFieldUInt(hwnd, IDC_MAXTHREADS_EDIT, &max_threads);
-            if (parallel_d && (!max_threads || max_threads > MAX_ALLOWED_RUNNING_THREADS)) {
+            if (parallel_d && (!max_threads || max_threads > 150)) {
                 max_threads = 30;
                 SetDlgItemInt(hwnd, IDC_MAXTHREADS_EDIT, max_threads, FALSE);
-                MessageBoxExW(hwnd, L"Επιτρεπόμενοι αριθμοί νημάτων είναι από 1 έως και " MAX_THREADS_W_STR
-                                    L". Το πρόγραμμα χρησιμοποιεί σαν προεπιλογή 30 νήματα, στις παράλληλες μεταφορές.",
-                                    L"Μη έγκυρος αριθμός νημάτων",
-                              MB_OK | MB_ICONINFORMATION, MAKELANGID(LANG_GREEK, SUBLANG_GREEK_GREECE));
+                MsgBoxErrLocal(hwnd, IDSTRING_47, IDSTRING_48);
             }
             SendMessage(hwnd, WM_CLOSE, 0, 0);
             break;

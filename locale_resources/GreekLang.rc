@@ -123,8 +123,8 @@ STRINGTABLE
     IDSTRING_44, "Δεν υπάρχει σύνδεση internet"
     IDSTRING_45, "Η DownloadsControllerThread απέτυχε με λάθος παραμέτρους."
     IDSTRING_46, "Η download_KINO_lotteries απέτυχε."
-    IDSTRING_47, ""
-    IDSTRING_48, ""
+    IDSTRING_47, "Επιτρεπόμενοι αριθμοί νημάτων είναι από 1 έως και 150. Το πρόγραμμα χρησιμοποιεί σαν προεπιλογή 30 νήματα, στις παράλληλες μεταφορές."
+    IDSTRING_48, "Μη έγκυρος αριθμός νημάτων!"
     IDSTRING_49, ""
     IDSTRING_50, ""
 }

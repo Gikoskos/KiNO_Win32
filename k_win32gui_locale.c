@@ -153,7 +153,7 @@ VOID SetTextDlgItemArrayW(HWND hwnd, UINT *strIDs, UINT *winIDs, size_t arr_len)
 
     for (size_t i = 0; i < arr_len; i++) {
         LoadStringW(KiNO_Win32DLL[currDLL].handle, strIDs[i], buff, buff_len);
-        if (!SetDlgItemTextW(hwnd, winIDs[i], buff)) printf("failed for %d\n", i);
+        SetDlgItemTextW(hwnd, winIDs[i], buff);
         buff[0] = 0;
     }
 }
