@@ -24,7 +24,7 @@
 
 #define MAX_OUTPUT_BUFF 6860000
 #define PRINT_BUFFSZ 4096
-#define TEMP_BUFFSZ 255
+#define TEMP_BUFFSZ 512
 
 
 static uint32_t min_lottery, max_lottery;
@@ -192,6 +192,19 @@ void PrintCustomTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lotte
     HRESULT hRes;
     size_t i;
     wchar_t tmp_buff[TEMP_BUFFSZ], print_buff[PRINT_BUFFSZ];
+    wchar_t localized_str1[25], localized_str2[50],
+            localized_str3[100], localized_str4[20],
+            localized_str5[50], localized_str6[20],
+            localized_str7[50], localized_str8[50];
+
+    LoadStr(localized_str1, IDSTRING_49);
+    LoadStr(localized_str2, IDSTRING_50);
+    LoadStr(localized_str3, IDSTRING_56);
+    LoadStr(localized_str4, IDSTRING_24);
+    LoadStr(localized_str5, IDSTRING_52);
+    LoadStr(localized_str6, IDSTRING_53);
+    LoadStr(localized_str7, IDSTRING_54);
+    LoadStr(localized_str8, IDSTRING_55);
 
     print_buff[0] = 0;
     tmp_buff[0] = 0;
@@ -199,7 +212,14 @@ void PrintCustomTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lotte
     for (i = 0; i <= data_len; i++, to_print++) {
         if (!(*to_print).valid_data) continue;
 
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"Κλήρωση %u σε αύξουσα σειρά:", (*to_print).lottery_num);
+        hRes = StringCchPrintfW(
+                                tmp_buff,
+                                TEMP_BUFFSZ,
+                                L"%s %u %s:",
+                                localized_str1,
+                                (*to_print).lottery_num,
+                                localized_str2
+                               );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"1 StringCchPrintfW()", IDSTRING_25);
@@ -245,7 +265,12 @@ void PrintCustomTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lotte
             }
         }
 
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"\r\n\t--- Δελτία ---\r\n");
+        hRes = StringCchPrintfW(
+                                tmp_buff,
+                                TEMP_BUFFSZ,
+                                L"\r\n\t--- %s ---\r\n",
+                                localized_str3
+                               );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"3 StringCchPrintfW()", IDSTRING_25);
@@ -266,14 +291,22 @@ void PrintCustomTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lotte
         }
 
         for (size_t j = 0; j < 8; j++) {
-            hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"%uο δελτίο (%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u)"
-                                    L"\t-> Σύνολο αριθμών που κερδίζουν: %02u"
-                                    L" με τιμή: %01.1f €%s\r\n",
-                                    j + 1, lottery_tickets[j][0], lottery_tickets[j][1], lottery_tickets[j][2],
-                                    lottery_tickets[j][3], lottery_tickets[j][4], lottery_tickets[j][5], lottery_tickets[j][6],
-                                    lottery_tickets[j][7], lottery_tickets[j][8], lottery_tickets[j][9],
-                                    (*to_print).winning_tens_total[j], (*to_print).winning_tens_payoff[j],
-                                    ((*to_print).magic_number_group[j] == true) ? L" (Το KINO bonus είναι σε αυτήν την όμαδα)" : L"");
+            hRes = StringCchPrintfW(
+                                    tmp_buff,
+                                    TEMP_BUFFSZ,
+                                    L"%u%s (%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u,%02u)\t"
+                                    L"-> %s: %02u"
+                                    L" %s: %01.1f € %s\r\n",
+                                    j + 1, localized_str4, lottery_tickets[j][0],
+                                    lottery_tickets[j][1], lottery_tickets[j][2],
+                                    lottery_tickets[j][3], lottery_tickets[j][4],
+                                    lottery_tickets[j][5], lottery_tickets[j][6],
+                                    lottery_tickets[j][7], lottery_tickets[j][8],
+                                    lottery_tickets[j][9], localized_str5,
+                                    (*to_print).winning_tens_total[j], localized_str6,
+                                    (*to_print).winning_tens_payoff[j],
+                                    ((*to_print).magic_number_group[j] == true) ? localized_str7 : L""
+                                   );
             if (FAILED(hRes)) {
 #ifdef __DBG
                 MsgBoxErrLocalCapt(hwnd, L"4 StringCchPrintfW()", IDSTRING_25);
@@ -293,7 +326,14 @@ void PrintCustomTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lotte
                 break;
             }
         }
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"Άθροισμα τιμών: %02.1f €\r\n\r\n", (*to_print).total_payoff);
+
+        hRes = StringCchPrintfW(
+                        tmp_buff,
+                        TEMP_BUFFSZ,
+                        L"%s: %02.1f €\r\n\r\n",
+                        localized_str8,
+                        (*to_print).total_payoff
+                       );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"5 StringCchPrintfW()", IDSTRING_25);
@@ -330,6 +370,19 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
     HRESULT hRes;
     size_t i;
     wchar_t tmp_buff[TEMP_BUFFSZ], print_buff[PRINT_BUFFSZ];
+    wchar_t localized_str1[25], localized_str2[50],
+            localized_str3[100], localized_str4[20],
+            localized_str5[50], localized_str6[20],
+            localized_str7[50], localized_str8[50];
+
+    LoadStr(localized_str1, IDSTRING_49);
+    LoadStr(localized_str2, IDSTRING_50);
+    LoadStr(localized_str3, IDSTRING_51);
+    LoadStr(localized_str4, IDSTRING_24);
+    LoadStr(localized_str5, IDSTRING_52);
+    LoadStr(localized_str6, IDSTRING_53);
+    LoadStr(localized_str7, IDSTRING_54);
+    LoadStr(localized_str8, IDSTRING_55);
 
     print_buff[0] = 0;
     tmp_buff[0] = 0;
@@ -337,7 +390,14 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
     for (i = 0; i <= data_len; i++, to_print++) {
         if (!(*to_print).valid_data) continue;
 
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"Κλήρωση %u σε αύξουσα σειρά:", (*to_print).lottery_num);
+        hRes = StringCchPrintfW(
+                                tmp_buff,
+                                TEMP_BUFFSZ,
+                                L"%s %u %s:",
+                                localized_str1,
+                                (*to_print).lottery_num,
+                                localized_str2
+                               );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"1 StringCchPrintfW()", IDSTRING_25);
@@ -365,13 +425,13 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
 
             if (FAILED(hRes)) {
 #ifdef __DBG
-            MsgBoxErrLocalCapt(hwnd, L"2 StringCchPrintfW()", IDSTRING_25);
+                MsgBoxErrLocalCapt(hwnd, L"2 StringCchPrintfW()", IDSTRING_25);
 #else
-            MsgBoxErrLocal(hwnd, IDSTRING_41, IDSTRING_25);
+                MsgBoxErrLocal(hwnd, IDSTRING_41, IDSTRING_25);
 #endif
                 break;
             }
-            
+
             hRes = StringCchCatW(print_buff, PRINT_BUFFSZ, tmp_buff);
             if (FAILED(hRes)) {
 #ifdef __DBG
@@ -383,7 +443,12 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
             }
         }
 
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"\r\n\t--- Δελτία ανά δέκα αριθμούς (1 - 10, 11 - 20...) ---\r\n");
+        hRes = StringCchPrintfW(
+                                tmp_buff,
+                                TEMP_BUFFSZ,
+                                L"\r\n\t--- %s (1 - 10, 11 - 20...) ---\r\n",
+                                localized_str3
+                               );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"3 StringCchPrintfW()", IDSTRING_25);
@@ -404,10 +469,16 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
         }
 
         for (size_t j = 0; j < 8; j++) {
-            hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"%uο δελτίο -> Σύνολο αριθμών που κερδίζουν: %02u"
-                                    L" με τιμή: %01.1f €%s\r\n",
-                                    j + 1, (*to_print).winning_tens_total[j], (*to_print).winning_tens_payoff[j],
-                                    (j == (*to_print).magic_number_group_idx) ? L" (Το KINO bonus είναι σε αυτήν την όμαδα)" : L"");
+            hRes = StringCchPrintfW(
+                                    tmp_buff,
+                                    TEMP_BUFFSZ,
+                                    L"%u%s -> %s: %02u"
+                                    L" %s: %01.1f € %s\r\n",
+                                    j + 1, localized_str4, localized_str5,
+                                    (*to_print).winning_tens_total[j], localized_str6,
+                                    (*to_print).winning_tens_payoff[j],
+                                    (j == (*to_print).magic_number_group_idx) ? localized_str7 : L""
+                                   );
             if (FAILED(hRes)) {
 #ifdef __DBG
                 MsgBoxErrLocalCapt(hwnd, L"4 StringCchPrintfW()", IDSTRING_25);
@@ -427,7 +498,13 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
                 break;
             }
         }
-        hRes = StringCchPrintfW(tmp_buff, TEMP_BUFFSZ, L"Άθροισμα τιμών: %02.1f €\r\n\r\n", (*to_print).total_payoff);
+        hRes = StringCchPrintfW(
+                                tmp_buff,
+                                TEMP_BUFFSZ,
+                                L"%s: %02.1f €\r\n\r\n",
+                                localized_str8,
+                                (*to_print).total_payoff
+                               );
         if (FAILED(hRes)) {
 #ifdef __DBG
             MsgBoxErrLocalCapt(hwnd, L"5 StringCchPrintfW()", IDSTRING_25);
@@ -453,6 +530,7 @@ void PrintDefaultTicketDataToPrintBox(const HWND hwnd, const HWND printbox, lott
         }
         tmp_buff[0] = 0;
     }
+
     if ((i - 1)%2) {
         AppendTextToLotteryPrintBox(printbox, print_buff);
     }
@@ -486,6 +564,7 @@ INT_PTR CALLBACK MainDialogProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPARAM 
     {
         SYSTEMTIME tmp_sys_date;
         BOOL composit_enabled;
+
         if (DwmIsCompositionEnabled(&composit_enabled) != S_OK) {
             MsgBoxErrLocal(NULL, IDSTRING_42, IDSTRING_25);
             exit(EXIT_FAILURE);

@@ -172,9 +172,13 @@ bool process_lotteries(lottery_data *to_process, size_t data_len)
 
         counter = 0;
         (*to_process).magic_number = (*to_process).results[19]; //last winning number is KINO bonus
-        qsort_s((*to_process).results,
-               (sizeof((*to_process).results) / sizeof((*to_process).results[0])),
-               sizeof((*to_process).results[0]), compare_int, &counter);
+        qsort_s(
+                (*to_process).results,
+                (sizeof((*to_process).results) / sizeof((*to_process).results[0])),
+                sizeof((*to_process).results[0]),
+                compare_int,
+                &counter
+               );
 
         make_groups_func(to_process);
     }

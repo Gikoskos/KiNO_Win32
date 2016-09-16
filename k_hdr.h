@@ -23,7 +23,6 @@
 
 /* Headers */
 #define _XOPEN_SOURCE 700 //for strerror()
-#define _GNU_SOURCE     //for qsort_r()
 #define _CRT_RAND_S     //for rand_s()
 
 #include <stdio.h>
@@ -46,7 +45,6 @@
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 #include <libxml/threads.h>
-#include "external/sort_r/sort_r.h"
 
 
 #include <direct.h>

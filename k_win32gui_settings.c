@@ -116,10 +116,11 @@ VOID OnRandomLotteryGroups(HWND hwnd, HWND hTabControl, HWND hListViewControl)
 
 BOOL InitializeTabs(HWND tabControl)
 {
-    wchar_t team_str[25];
+    wchar_t tmp[25], team_str[25] = L" ";
     TCITEMW lott_teams = {.mask = TCIF_TEXT, .pszText = team_str};
 
-    LoadStr(team_str, IDSTRING_24);
+    LoadStr(tmp, IDSTRING_24);
+    StringCchCatW(team_str, ARRAYSIZE(team_str), tmp);
     for (wchar_t i = L'1'; i <= L'8'; i++) {
         team_str[0] = i;
         if (TabCtrl_InsertItem(tabControl, i - L'1', &lott_teams) == -1) {
