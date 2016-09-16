@@ -1,5 +1,5 @@
 # KiNO_Win32
-WinAPI application to download KINO lotteries and get winning prices for a fixed number of tickets.
+WinAPI application to download [OPAP KINO](http://www.opap.gr/en/web/guest/demo-kino) lotteries and get winning prices for a fixed number of tickets.
 
 At the moment the algorithm works for up to 8 tickets with 10 numbers.
 
