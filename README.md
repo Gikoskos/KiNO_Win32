@@ -9,6 +9,8 @@ how much your ticket costs for each lottery.
 A user can select which lotteries to download in 3 different ways. By selecting the dates of the lotteries, by setting a first lottery number and a last lottery number 
 (so that the program downloads the lotteries from the first up to the last lottery) or by getting the latest x lotteries played.
 
+![Alt Text](http://i.imgur.com/szDNXEs.gif)
+
 ## Building
 
 Supported compilers: mingw-w64
